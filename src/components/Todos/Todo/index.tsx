@@ -1,13 +1,14 @@
 import React from "react";
 import {TodoWrapper, DeleteButton, DoneButton, TodoTitle, ButtonsWrapper} from "./StyledTodo";
+import {ITodo} from "../../../interfaces";
 
 interface ITodoPops {
     idx: number,
-    title: string,
-    isCompleted: boolean,
-    id: number,
-    onTaskDelete(id: number): void,
-    onTaskComplete(id: number): void,
+    title: ITodo['title'],
+    isCompleted: ITodo['isCompleted'],
+    id: ITodo['id'],
+    onTaskDelete(id: ITodo['id']): void,
+    onTaskComplete(id: ITodo['id']): void,
 }
 
 const Todo = ({idx, title, onTaskComplete,isCompleted, onTaskDelete, id}: ITodoPops): JSX.Element => (

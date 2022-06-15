@@ -1,9 +1,10 @@
 import React, {useState} from "react";
 import {HeaderWrapper, StyledButton, StyledInput} from "./styles";
+import {ITodo} from "../../interfaces";
 
 
 interface ITodoHeaderProps {
-    addTask: (title: string) => void
+    addTask: (title: ITodo['title']) => void
 }
 
 

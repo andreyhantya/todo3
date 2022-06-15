@@ -5,8 +5,8 @@ import {ITodo} from "../../interfaces";
 
 interface ITodosProps {
     todoInfo: ITodo[],
-    onTaskDelete(id: number): void,
-    onTaskComplete(id: number): void
+    onTaskDelete(id: ITodo['id']): void,
+    onTaskComplete(id: ITodo['id']): void
 }
 
 const Todos = ({ todoInfo, onTaskDelete, onTaskComplete }: ITodosProps): JSX.Element => (

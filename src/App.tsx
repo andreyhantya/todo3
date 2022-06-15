@@ -7,7 +7,7 @@ import TodoHeader from "./components/TodoHeader";
 const App = (): JSX.Element => {
   const [todos, setTodos] = useState<ITodo[]>([]);
 
-  const addTask = (taskTitle: string) => {
+  const addTask = (taskTitle: ITodo['title']) => {
     const newTodo: ITodo = {
       id: Date.now(),
       title: taskTitle,
@@ -16,17 +16,17 @@ const App = (): JSX.Element => {
     setTodos([newTodo , ...todos])
   }
 
-  const onTaskComplete = (id: number) => {
-    const newTask = todos.map((elem) => (
+  const onTaskComplete = (id: ITodo['id']) => {
+    const newTodos = todos.map((elem) => (
        elem.id === id
           ? { ...elem, isCompleted: !elem.isCompleted }
           : elem
     ));
 
-    setTodos(newTask)
+    setTodos(newTodos)
   }
 
-  const onTaskDelete = (id: number) => {
+  const onTaskDelete = (id: ITodo['id']) => {
     return setTodos(prev => prev.filter((todo) => todo.id !== id ));
   }
 
